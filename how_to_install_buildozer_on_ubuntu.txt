@@ -1,0 +1,28 @@
+sudo apt-get install python-pip
+sudo pip install --upgrade buildozer
+sudo apt-get install python2.7-dev
+sudo pip install --upgrade cython=0.21
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install build-essential ccache git lib32z1 libncurses5:i386 libstdc++6:i386 python2.7 openjdk-7-jdk unzip zlib1g-dev zlib1g:i386
+sudo add-apt-repository ppa:kivy-team/kivy
+sudo add-apt-repository ppa:kivy-team/kivy-daily
+sudo apt-get update
+sudo apt-get install python-kivy
+
+in the project directory: main.py
+---------------------------------
+__version__ = "1.0"
+from kivy.app import App
+from kivy.uix.button import Button
+  
+class Hello(App):
+    def build(self):
+        btn = Button(text='Hello World')
+        return  btn
+  
+Hello().run()
+---------------------------------
+
+buildozer init
+buildozer -v android debug
